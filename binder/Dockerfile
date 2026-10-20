@@ -1,4 +1,4 @@
-FROM quay.io/jupyter/minimal-notebook:notebook-7.4.3
+FROM quay.io/jupyter/minimal-notebook:notebook-7.6.3
 
 # Step 1: Switch to root for installation
 USER root
@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     tar \
     && rm -rf /var/lib/apt/lists/* \
     && mkdir -p /opt/openvscode-server \
-    && curl -L https://github.com/gitpod-io/openvscode-server/releases/download/openvscode-server-v1.101.2/openvscode-server-v1.101.2-linux-x64.tar.gz \
+    && curl -L https://github.com/gitpod-io/openvscode-server/releases/download/openvscode-server-v1.109.5/openvscode-server-v1.109.5-linux-x64.tar.gz \
         | tar -xz -C /opt/openvscode-server --strip-components=1 \
     && chown -R ${NB_UID}:${NB_GID} /opt/openvscode-server
 
